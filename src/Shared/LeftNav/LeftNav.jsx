@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import CustomerCard from "../../Pages/Home/CustomerCard/CustomerCard";
+import { Container } from "react-bootstrap";
 
 const LeftNav = () => {
   const [customers, setCustomers] = useState([]);
@@ -9,9 +11,15 @@ const LeftNav = () => {
       .catch((error) => console.log(error));
   });
   return (
-    <div>
-      <h2>What customers are saying About Us {customers.length}</h2>
-    </div>
+    <Container className="my-4">
+      <h2 className="fs-1 fw-bold text-center">
+        What customers are saying <br />
+        <span className="text-success">About Us</span>
+      </h2>
+      {customers.map((customer) => (
+        <CustomerCard key={customer.id} customer={customer}></CustomerCard>
+      ))}
+    </Container>
   );
 };
 

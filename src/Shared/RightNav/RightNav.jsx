@@ -6,29 +6,31 @@ import { Container } from "react-bootstrap";
 
 const RightNav = () => {
   return (
-    <div>
-      <h2 className="text-success">Popular Recipes of our Chefs</h2>
-      <Container>
+    <Container className="my-4 d-flex justify-content-center flex-column">
+      <h2 className="fs-1 fw-bold text-center text-success">
+        Popular Recipes of our Chefs
+      </h2>
+      <div>
         <img
-          className="my-4"
+          className="my-4 shadow"
           style={{ height: "180px", width: "250px" }}
           src={recipe1}
           alt=""
         />
         <img
-          className="mb-4"
+          className="mb-4 shadow"
           style={{ height: "180px", width: "250px" }}
           src={recipe2}
           alt=""
         />
         <img
-          className="mb-4"
+          className="mb-4 shadow"
           style={{ height: "180px", width: "250px" }}
           src={recipe3}
           alt=""
         />
-      </Container>
-    </div>
+      </div>
+    </Container>
   );
 };
 
