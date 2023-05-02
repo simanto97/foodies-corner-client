@@ -6,7 +6,7 @@ import { Carousel, Container } from "react-bootstrap";
 
 const Banner = () => {
   return (
-    <Container>
+    <Container className="my-4">
       <Carousel>
         <Carousel.Item interval={1200}>
           <img className="d-block w-100" src={recipe1} alt="First slide" />

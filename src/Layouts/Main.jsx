@@ -5,6 +5,7 @@ import LeftNav from "../Shared/LeftNav/LeftNav";
 import RightNav from "../Shared/RightNav/RightNav";
 import NavigationBar from "../Shared/NavigationBar/NavigationBar";
 import Banner from "../Pages/Home/Banner/Banner";
+import ChefCard from "../Pages/Home/ChefCard/ChefCard";
 
 const Main = () => {
   return (
@@ -17,6 +18,7 @@ const Main = () => {
           </Col>
           <Col lg={6}>
             <Banner></Banner>
+            <ChefCard></ChefCard>
           </Col>
           <Col lg={3}>
             <RightNav></RightNav>
