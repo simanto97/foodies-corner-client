@@ -16,14 +16,21 @@ const NavigationBar = () => {
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="mx-auto">
-              <Nav.Link href="#features">Home</Nav.Link>
-              <Nav.Link href="#pricing">Blog</Nav.Link>
+              <Link
+                className="text-decoration-none m-0 text-secondary me-3"
+                to="/"
+              >
+                Home
+              </Link>
+              <Link className="text-decoration-none m-0 text-secondary" to="">
+                Blog
+              </Link>
             </Nav>
             <Nav>
               <Nav.Link href="#deets">profile</Nav.Link>
-              <Nav.Link eventKey={2} href="#memes">
+              <Link to="/login">
                 <Button variant="success">Login</Button>
-              </Nav.Link>
+              </Link>
             </Nav>
           </Navbar.Collapse>
         </Container>
