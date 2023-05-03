@@ -20,15 +20,15 @@ const router = createBrowserRouter([
   },
   {
     path: "/recipes",
-    element: (
-      <PrivateRoute>
-        <RecipeCardLayout></RecipeCardLayout>
-      </PrivateRoute>
-    ),
+    element: <RecipeCardLayout></RecipeCardLayout>,
     children: [
       {
         path: ":id",
-        element: <Recipes></Recipes>,
+        element: (
+          <PrivateRoute>
+            <Recipes></Recipes>
+          </PrivateRoute>
+        ),
         loader: ({ params }) =>
           fetch(`http://localhost:5000/chefs/${params.id}`),
       },
