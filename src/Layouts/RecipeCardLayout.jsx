@@ -4,6 +4,7 @@ import NavigationBar from "../Shared/NavigationBar/NavigationBar";
 import { Col, Container, Row } from "react-bootstrap";
 import Footer from "../Shared/Footer/Footer";
 import LeftNav from "../Shared/LeftNav/LeftNav";
+import { Outlet } from "react-router-dom";
 
 const RecipeCardLayout = () => {
   return (
@@ -12,7 +13,7 @@ const RecipeCardLayout = () => {
       <Container>
         <Row>
           <Col lg={9}>
-            <Recipes></Recipes>
+            <Outlet></Outlet>
           </Col>
           <Col lg={3}>
             <LeftNav></LeftNav>

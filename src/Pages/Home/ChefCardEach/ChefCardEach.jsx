@@ -1,6 +1,7 @@
 import React from "react";
 import { Button, Card } from "react-bootstrap";
 import { FaHeart } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const ChefCardEach = ({ chef }) => {
   const {
@@ -25,7 +26,9 @@ const ChefCardEach = ({ chef }) => {
               <FaHeart className="text-danger"></FaHeart> {likes}
             </p>
           </Card.Text>
-          <Button variant="success">View Recipes</Button>
+          <Link to={`/recipes/${id}`}>
+            <Button variant="success">View Recipes</Button>
+          </Link>
         </Card.Body>
       </Card>
     </div>
