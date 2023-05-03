@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import { Card } from "react-bootstrap";
 import { FaHeart, FaRegStar, FaStar } from "react-icons/fa";
 import Rating from "react-rating";
 
 const RecipeCard = ({ recipe }) => {
+  const [favorite, setFavorite] = useState(false);
+  const handleFavorite = (e) => {
+    console.log(e.target.click);
+  };
   return (
     <Card style={{ width: "18rem" }}>
       <Card.Img
@@ -22,7 +26,7 @@ const RecipeCard = ({ recipe }) => {
           />
           <span className="ms-2">{recipe.rating}</span>
         </div>
-        <FaHeart></FaHeart>
+        <FaHeart onClick={handleFavorite}></FaHeart>
       </Card.Header>
       <Card.Body>
         <Card.Title>{recipe.name}</Card.Title>

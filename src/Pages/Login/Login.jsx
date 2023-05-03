@@ -2,11 +2,14 @@ import React, { useContext } from "react";
 import NavigationBar from "../../Shared/NavigationBar/NavigationBar";
 import Footer from "../../Shared/Footer/Footer";
 import { Button, Container, Form } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
 
 const Login = () => {
   const { signIn } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -17,7 +20,7 @@ const Login = () => {
     signIn(email, password)
       .then((result) => {
         const loggedUser = result.user;
-        console.log(loggedUser);
+        navigate(from, { replace: true });
       })
       .catch((error) => console.log(error));
   };

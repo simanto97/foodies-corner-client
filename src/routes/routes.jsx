@@ -5,6 +5,7 @@ import RecipeCardLayout from "../Layouts/RecipeCardLayout";
 import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
 import Recipes from "../Pages/Recipes/Recipes/Recipes";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -19,7 +20,11 @@ const router = createBrowserRouter([
   },
   {
     path: "/recipes",
-    element: <RecipeCardLayout></RecipeCardLayout>,
+    element: (
+      <PrivateRoute>
+        <RecipeCardLayout></RecipeCardLayout>
+      </PrivateRoute>
+    ),
     children: [
       {
         path: ":id",

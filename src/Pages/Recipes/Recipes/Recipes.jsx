@@ -25,7 +25,7 @@ const Recipes = () => {
           <h6>Likes: {likes}</h6>
         </div>
       </div>
-      <div className="d-flex justify-content-center">
+      <div className="d-flex justify-content-center gap-2 mt-4">
         {chefRecipes.map((recipe) => (
           <RecipeCard key={recipe._id} recipe={recipe}></RecipeCard>
         ))}
