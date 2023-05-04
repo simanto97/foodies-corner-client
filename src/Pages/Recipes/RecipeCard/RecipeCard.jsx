@@ -5,9 +5,7 @@ import Rating from "react-rating";
 
 const RecipeCard = ({ recipe }) => {
   const [favorite, setFavorite] = useState(false);
-  const handleFavorite = (e) => {
-    console.log(e.target.click);
-  };
+
   return (
     <Card style={{ width: "18rem" }}>
       <Card.Img
@@ -26,7 +24,17 @@ const RecipeCard = ({ recipe }) => {
           />
           <span className="ms-2">{recipe.rating}</span>
         </div>
-        <FaHeart onClick={handleFavorite}></FaHeart>
+        {favorite ? (
+          <FaHeart
+            className="text-danger"
+            onClick={() => setFavorite(!favorite)}
+          ></FaHeart>
+        ) : (
+          <FaHeart
+            className="text-secondary"
+            onClick={() => setFavorite(!favorite)}
+          ></FaHeart>
+        )}
       </Card.Header>
       <Card.Body>
         <Card.Title>{recipe.name}</Card.Title>

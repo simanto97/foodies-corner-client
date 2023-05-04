@@ -4,6 +4,7 @@ import Footer from "../../Shared/Footer/Footer";
 import { Button, Container, Form } from "react-bootstrap";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
+import GoogleGitAuth from "../../Shared/GoogleGitAuth/GoogleGitAuth";
 
 const Login = () => {
   const { signIn } = useContext(AuthContext);
@@ -27,7 +28,7 @@ const Login = () => {
   return (
     <div>
       <NavigationBar></NavigationBar>
-      <Container className="w-25 mx-auto">
+      <Container className="w-25 mx-auto shadow-lg">
         <h2 className="fs-2 fw-bold text-center text-success mt-5 pt-1">
           Hello there! Please Login
         </h2>
@@ -63,6 +64,7 @@ const Login = () => {
           <Form.Text className="success"></Form.Text>
           <Form.Text className="danger"></Form.Text>
         </Form>
+        <GoogleGitAuth></GoogleGitAuth>
       </Container>
       <Footer></Footer>
     </div>

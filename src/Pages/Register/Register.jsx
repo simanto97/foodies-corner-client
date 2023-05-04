@@ -1,13 +1,14 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Button, Container, Form } from "react-bootstrap";
 import NavigationBar from "../../Shared/NavigationBar/NavigationBar";
 import Footer from "../../Shared/Footer/Footer";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
+import GoogleGitAuth from "../../Shared/GoogleGitAuth/GoogleGitAuth";
 
 const Register = () => {
-  const { createUser, updateUserProfile } = useContext(AuthContext);
-
+  const { registerUser, updateUserProfile } = useContext(AuthContext);
+  const [error, setError] = useState("");
   const handleRegister = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -15,12 +16,19 @@ const Register = () => {
     const photo = form.photo.value;
     const email = form.email.value;
     const password = form.password.value;
-    createUser(email, password)
-      .then((result) => {
-        const createdUser = result.user;
-      })
-      .catch((error) => console.log(error.message));
-    updateUserProfile(name,photo)
+    if (password.length < 6) {
+      setError("Minimum 6 characters");
+      return;
+    }
+    if ((email, password)) {
+      registerUser(name, photo, email, password)
+        .then((result) => {
+          const createdUser = result.user;
+        })
+        .catch((error) => setError(error.message));
+    }
+
+    updateUserProfile(name, photo)
       .then((result) => console.log(result))
       .catch((error) => console.log(error));
   };
@@ -28,7 +36,7 @@ const Register = () => {
   return (
     <div>
       <NavigationBar></NavigationBar>
-      <Container className="w-25 mx-auto">
+      <Container className="w-25 mx-auto shadow-lg">
         <h2 className="fs-2 fw-bold text-center text-success mt-5 pt-1">
           Hello there! Please Register
         </h2>
@@ -74,7 +82,9 @@ const Register = () => {
           <Form.Text>
             Already have an account? Please <Link to="/login">Login</Link>
           </Form.Text>
+          <Form.Text className="danger">{error}</Form.Text>
         </Form>
+        <GoogleGitAuth></GoogleGitAuth>
       </Container>
       <Footer></Footer>
     </div>

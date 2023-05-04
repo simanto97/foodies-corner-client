@@ -15,7 +15,7 @@ const auth = getAuth(app);
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
-  const createUser = (email, password) => {
+  const registerUser = (name, photo, email, password) => {
     setLoading(true);
     return createUserWithEmailAndPassword(auth, email, password);
   };
@@ -29,13 +29,14 @@ const AuthProvider = ({ children }) => {
       photoURL: "https://example.com/jane-q-user/profile.jpg",
     });
   };
+
   const logOut = () => {
     setLoading(true);
     return signOut(auth);
   };
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (loggedUser) => {
-      console.log("Loggggggged", loggedUser);
+      console.log("Logged in ", loggedUser);
       setUser(loggedUser);
       setLoading(false);
     });
@@ -44,9 +45,11 @@ const AuthProvider = ({ children }) => {
       unsubscribe();
     };
   }, []);
+
   const authInfo = {
     user,
-    createUser,
+    setUser,
+    registerUser,
     signIn,
     updateUserProfile,
     logOut,
