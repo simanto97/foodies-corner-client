@@ -24,15 +24,15 @@ const AuthProvider = ({ children }) => {
     setLoading(true);
     return createUserWithEmailAndPassword(auth, email, password);
   };
+  const updateUserProfile = (name, photo) => {
+    return updateProfile(auth.currentUser, {
+      displayName: name,
+      photoURL: photo,
+    });
+  };
   const signIn = (email, password) => {
     setLoading(true);
     return signInWithEmailAndPassword(auth, email, password);
-  };
-  const updateUserProfile = (name, photo) => {
-    return updateProfile(auth.currentUser, {
-      displayName: "Jane Q. User",
-      photoURL: "https://example.com/jane-q-user/profile.jpg",
-    });
   };
   const handleGoogleSignIn = () => {
     signInWithPopup(auth, googleProvider)

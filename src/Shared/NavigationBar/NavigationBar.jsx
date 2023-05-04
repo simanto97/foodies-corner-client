@@ -7,6 +7,8 @@ import ActiveLink from "../../Pages/Home/ActiveLink/ActiveLink";
 
 const NavigationBar = () => {
   const { user, logOut } = useContext(AuthContext);
+  console.log(user);
+
   const handleLogout = () => {
     logOut()
       .then()
@@ -25,20 +27,30 @@ const NavigationBar = () => {
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="mx-auto">
-              <Link className="text-decoration-none me-3 text-secondary" to="/">
+              <ActiveLink
+                className="text-decoration-none me-3 text-secondary"
+                to="/"
+              >
                 Home
-              </Link>
-              <Link
+              </ActiveLink>
+              <ActiveLink
                 className="text-decoration-none m-0 text-secondary"
                 to="/blog"
               >
                 Blog
-              </Link>
+              </ActiveLink>
             </Nav>
             <Nav className="d-flex align-items-center gap-2">
               {user && <span>{user.displayName}</span>}
-              {user && <FaUserCircle className="fs-1"></FaUserCircle>}
 
+              {user && (
+                <img
+                  title={user.displayName}
+                  className="rounded-circle"
+                  src={user.photoURL}
+                  alt="User"
+                />
+              )}
               {user ? (
                 <Button onClick={handleLogout} variant="success">
                   Logout
