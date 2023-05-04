@@ -13,15 +13,11 @@ const Main = () => {
       <NavigationBar></NavigationBar>
       <Container>
         <Row>
-          <Col lg={3}>
-            <LeftNav></LeftNav>
-          </Col>
-          <Col lg={6}>
+          <Col lg={12}>
             <Banner></Banner>
-            <ChefCard></ChefCard>
-          </Col>
-          <Col lg={3}>
             <RightNav></RightNav>
+            <LeftNav></LeftNav>
+            <ChefCard></ChefCard>
           </Col>
         </Row>
       </Container>

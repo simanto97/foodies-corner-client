@@ -12,11 +12,8 @@ const RecipeCardLayout = () => {
       <NavigationBar></NavigationBar>
       <Container>
         <Row>
-          <Col lg={9}>
+          <Col lg={12}>
             <Outlet></Outlet>
-          </Col>
-          <Col lg={3}>
-            <LeftNav></LeftNav>
           </Col>
         </Row>
       </Container>

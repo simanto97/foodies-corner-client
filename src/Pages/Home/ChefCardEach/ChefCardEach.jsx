@@ -15,8 +15,13 @@ const ChefCardEach = ({ chef }) => {
   } = chef;
   return (
     <div>
-      <Card style={{ width: "18rem" }} className="text-center">
-        <Card.Img style={{ height: "250px" }} variant="top" src={picture} />
+      <Card className="text-center">
+        <Card.Img
+          className="mx-auto"
+          style={{ height: "250px" }}
+          variant="top"
+          src={picture}
+        />
         <Card.Body>
           <Card.Title className="fs-3">{name}</Card.Title>
           <Card.Text>

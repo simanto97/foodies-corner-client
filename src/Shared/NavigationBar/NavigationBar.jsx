@@ -3,7 +3,7 @@ import { Button, Container, Nav, Navbar } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
 import { FaUserCircle } from "react-icons/fa";
-import "./NavigationBar.css";
+import ActiveLink from "../../Pages/Home/ActiveLink/ActiveLink";
 
 const NavigationBar = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -36,6 +36,7 @@ const NavigationBar = () => {
               </Link>
             </Nav>
             <Nav className="d-flex align-items-center gap-2">
+              {user && <span>{user.displayName}</span>}
               {user && <FaUserCircle className="fs-1"></FaUserCircle>}
 
               {user ? (

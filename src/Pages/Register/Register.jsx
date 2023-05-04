@@ -36,7 +36,7 @@ const Register = () => {
   return (
     <div>
       <NavigationBar></NavigationBar>
-      <Container className="w-25 mx-auto shadow-lg">
+      <Container className="w-75 w-md-25 mx-auto shadow-lg">
         <h2 className="fs-2 fw-bold text-center text-success mt-5 pt-1">
           Hello there! Please Register
         </h2>

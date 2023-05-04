@@ -5,17 +5,24 @@ const ChefCard = () => {
   const [chefs, setChefs] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/chefs")
+    fetch("https://assignment-10-server-simanto97.vercel.app/chefs")
       .then((res) => res.json())
       .then((data) => setChefs(data))
       .catch((error) => console.log(error));
   });
   return (
     <div>
-      <h2>Chefs {chefs.length}</h2>
+      <h2 className="fs-1 fw-bold text-center p-5">
+        Here is our
+        <span className="text-success"> Chefs</span>
+      </h2>
       <div
-        className=""
-        style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)" }}
+        className="mb-4"
+        style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(3, 1fr)",
+          gap: "30px",
+        }}
       >
         {chefs.map((chef) => (
           <ChefCardEach key={chef.id} chef={chef}></ChefCardEach>

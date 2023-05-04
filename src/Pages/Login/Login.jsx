@@ -28,7 +28,7 @@ const Login = () => {
   return (
     <div>
       <NavigationBar></NavigationBar>
-      <Container className="w-25 mx-auto shadow-lg">
+      <Container className="w-md-25 w-75 mx-auto shadow-lg">
         <h2 className="fs-2 fw-bold text-center text-success mt-5 pt-1">
           Hello there! Please Login
         </h2>
