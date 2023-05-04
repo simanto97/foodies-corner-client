@@ -33,12 +33,12 @@ const NavigationBar = () => {
               >
                 Home
               </ActiveLink>
-              <ActiveLink
+              <Link
                 className="text-decoration-none m-0 text-secondary"
-                to="/blog"
+                to="/blogs"
               >
                 Blog
-              </ActiveLink>
+              </Link>
             </Nav>
             <Nav className="d-flex align-items-center gap-2">
               {user && <span>{user.displayName}</span>}
