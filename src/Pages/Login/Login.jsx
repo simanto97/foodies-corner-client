@@ -7,7 +7,7 @@ import { AuthContext } from "../../Providers/AuthProvider";
 import GoogleGitAuth from "../../Shared/GoogleGitAuth/GoogleGitAuth";
 
 const Login = () => {
-  const { signIn } = useContext(AuthContext);
+  const { signIn,error } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
@@ -62,7 +62,7 @@ const Login = () => {
             Don't have an account? Please <Link to="/register">Register</Link>
           </Form.Text>
           <Form.Text className="success"></Form.Text>
-          <Form.Text className="danger"></Form.Text>
+          <Form.Text className="danger">{error}</Form.Text>
         </Form>
         <GoogleGitAuth></GoogleGitAuth>
       </Container>

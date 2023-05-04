@@ -27,12 +27,9 @@ const NavigationBar = () => {
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="mx-auto">
-              <ActiveLink
-                className="text-decoration-none me-3 text-secondary"
-                to="/"
-              >
+              <Link className="text-decoration-none me-3 text-secondary" to="/">
                 Home
-              </ActiveLink>
+              </Link>
               <Link
                 className="text-decoration-none m-0 text-secondary"
                 to="/blogs"
