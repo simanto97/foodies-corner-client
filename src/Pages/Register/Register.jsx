@@ -5,6 +5,7 @@ import Footer from "../../Shared/Footer/Footer";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
 import GoogleGitAuth from "../../Shared/GoogleGitAuth/GoogleGitAuth";
+import "./Register.css";
 
 const Register = () => {
   const { registerUser, updateUserProfile, setUser } = useContext(AuthContext);
@@ -42,7 +43,7 @@ const Register = () => {
   return (
     <div>
       <NavigationBar></NavigationBar>
-      <Container className="w-25 mx-auto shadow-lg">
+      <Container className="w-25 mobile-width mx-auto shadow-lg">
         <h2 className="fs-2 fw-bold text-center text-success mt-5 pt-1">
           Hello there! Please Register
         </h2>

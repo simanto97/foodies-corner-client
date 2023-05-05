@@ -5,6 +5,7 @@ import { Button, Container, Form } from "react-bootstrap";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
 import GoogleGitAuth from "../../Shared/GoogleGitAuth/GoogleGitAuth";
+import "./Login.css";
 
 const Login = () => {
   const { signIn } = useContext(AuthContext);
@@ -29,7 +30,7 @@ const Login = () => {
   return (
     <div>
       <NavigationBar></NavigationBar>
-      <Container className="w-25 mx-auto shadow-lg">
+      <Container className="w-25 mobile-width mx-auto shadow-lg">
         <h2 className="fs-2 fw-bold text-center text-success mt-5 pt-1">
           Hello there! Please Login
         </h2>
