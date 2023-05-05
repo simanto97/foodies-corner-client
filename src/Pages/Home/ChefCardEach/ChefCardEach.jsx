@@ -1,6 +1,7 @@
 import React from "react";
 import { Button, Card } from "react-bootstrap";
 import { FaHeart } from "react-icons/fa";
+import LazyLoad from "react-lazyload";
 import { Link } from "react-router-dom";
 
 const ChefCardEach = ({ chef }) => {
@@ -16,12 +17,14 @@ const ChefCardEach = ({ chef }) => {
   return (
     <div>
       <Card className="text-center">
-        <Card.Img
-          className="mx-auto"
-          style={{ height: "250px" }}
-          variant="top"
-          src={picture}
-        />
+        <LazyLoad height={200}>
+          <Card.Img
+            className="mx-auto"
+            style={{ height: "250px" }}
+            variant="top"
+            src={picture}
+          />
+        </LazyLoad>
         <Card.Body>
           <Card.Title className="fs-3">{name}</Card.Title>
           <Card.Text>

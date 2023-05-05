@@ -43,7 +43,8 @@ const NavigationBar = () => {
               {user && (
                 <img
                   title={user.displayName}
-                  className="rounded-circle w-25"
+                  className="rounded-circle"
+                  style={{ height: "50px", width: "50px" }}
                   src={user.photoURL}
                   alt="User"
                 />
