@@ -7,7 +7,8 @@ import { AuthContext } from "../../Providers/AuthProvider";
 import GoogleGitAuth from "../../Shared/GoogleGitAuth/GoogleGitAuth";
 
 const Register = () => {
-  const { registerUser, updateUserProfile, setUser } = useContext(AuthContext);
+  const { registerUser, updateUserProfile, setUser, logOut } =
+    useContext(AuthContext);
   const [error, setError] = useState("");
   const handleRegister = (e) => {
     e.preventDefault();
@@ -27,11 +28,11 @@ const Register = () => {
             .then((result) => {
               setError("");
               const loggedUser = result.user;
-              console.log(loggedUser);
+              setUser(loggedUser);
             })
             .catch((error) => console.log(error.message));
         })
-        .catch((error) => setError(error.message));
+        .catch((error) => setError(error.message.split("/")[1].split(")"[0])));
     }
   };
 

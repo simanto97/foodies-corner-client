@@ -24,7 +24,7 @@ const Login = () => {
         navigate(from, { replace: true });
         setError("");
       })
-      .catch((error) => console.log(error.message));
+      .catch((error) => setError(error.message.split("/")[1].split(")"[0])));
   };
   return (
     <div>
@@ -63,7 +63,7 @@ const Login = () => {
             Don't have an account? Please <Link to="/register">Register</Link>
           </Form.Text>
           <Form.Text className="success"></Form.Text> <br />
-          <Form.Text className="danger">{error}</Form.Text>
+          <Form.Text className="danger fs-4">{error}</Form.Text>
         </Form>
         <GoogleGitAuth></GoogleGitAuth>
       </Container>
