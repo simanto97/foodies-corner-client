@@ -7,9 +7,9 @@ import { AuthContext } from "../../Providers/AuthProvider";
 import GoogleGitAuth from "../../Shared/GoogleGitAuth/GoogleGitAuth";
 
 const Register = () => {
-  const { registerUser, updateUserProfile, setUser, logOut } =
-    useContext(AuthContext);
+  const { registerUser, updateUserProfile, setUser } = useContext(AuthContext);
   const [error, setError] = useState("");
+  const [accepted, setAccepted] = useState(false);
   const handleRegister = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -34,6 +34,9 @@ const Register = () => {
         })
         .catch((error) => setError(error.message.split("/")[1].split(")"[0])));
     }
+  };
+  const handleAccepted = (e) => {
+    setAccepted(e.target.checked);
   };
 
   return (
@@ -75,9 +78,13 @@ const Register = () => {
             />
           </Form.Group>
           <Form.Group className="mb-3" controlId="formBasicCheckbox">
-            <Form.Check type="checkbox" label="Accept Terms and Conditions" />
+            <Form.Check
+              onClick={handleAccepted}
+              type="checkbox"
+              label="Accept Terms and Conditions"
+            />
           </Form.Group>
-          <Button variant="success" type="submit">
+          <Button variant="success" disabled={!accepted} type="submit">
             Register
           </Button>
           <br />
