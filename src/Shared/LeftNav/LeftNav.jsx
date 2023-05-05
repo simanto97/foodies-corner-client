@@ -16,7 +16,7 @@ const LeftNav = () => {
         What customers are saying <br />
         <span className="text-success">About Us</span>
       </h2>
-      <div className="d-md-flex justify-content-between">
+      <div className="d-flex flex-column flex-md-row align-items-center align-items-md-start justify-content-between">
         {customers.map((customer) => (
           <CustomerCard key={customer.id} customer={customer}></CustomerCard>
         ))}

@@ -2,12 +2,10 @@ import React, { useContext } from "react";
 import { Button, Container, Nav, Navbar } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
-import { FaUserCircle } from "react-icons/fa";
 import ActiveLink from "../../Pages/Home/ActiveLink/ActiveLink";
 
 const NavigationBar = () => {
   const { user, logOut } = useContext(AuthContext);
-  console.log(user);
 
   const handleLogout = () => {
     logOut()
@@ -27,15 +25,12 @@ const NavigationBar = () => {
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="mx-auto">
-              <Link className="text-decoration-none me-3 text-secondary" to="/">
+              <ActiveLink className="me-3" to="/">
                 Home
-              </Link>
-              <Link
-                className="text-decoration-none m-0 text-secondary"
-                to="/blogs"
-              >
+              </ActiveLink>
+              <ActiveLink className="ms-2" to="/blogs">
                 Blog
-              </Link>
+              </ActiveLink>
             </Nav>
             <Nav className="d-flex align-items-center gap-2">
               {user && <span>{user.displayName}</span>}

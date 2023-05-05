@@ -7,7 +7,7 @@ const RecipeCard = ({ recipe }) => {
   const [favorite, setFavorite] = useState(false);
 
   return (
-    <Card style={{ width: "18rem" }}>
+    <Card className="m-4" style={{ width: "18rem" }}>
       <Card.Img
         style={{ height: "12rem" }}
         variant="top"
@@ -41,8 +41,8 @@ const RecipeCard = ({ recipe }) => {
         <Card.Text>{recipe.method}</Card.Text>
         <Card.Text>
           <h6>Ingredients: </h6>
-          {recipe.ingredients.map((n) => (
-            <li>{n}</li>
+          {recipe.ingredients.map((n, i) => (
+            <li key={i}>{n}</li>
           ))}
         </Card.Text>
       </Card.Body>

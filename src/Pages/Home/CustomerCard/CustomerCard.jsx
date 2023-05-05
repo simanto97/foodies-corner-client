@@ -16,8 +16,7 @@ const CustomerCard = ({ customer }) => {
       <Card.Body>
         <Card.Title className="text-success">{name}</Card.Title>
         <Card.Text>
-          {" "}
-          <small>{location}</small>{" "}
+          <small>{location}</small>
         </Card.Text>
         <Card.Text>{feedback}</Card.Text>
       </Card.Body>

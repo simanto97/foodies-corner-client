@@ -1,10 +1,17 @@
 import React from "react";
-import { NavLink } from "react-bootstrap";
 import "./ActiveLink.css";
+import { NavLink } from "react-router-dom";
 
 const ActiveLink = ({ to, children }) => {
   return (
-    <NavLink to={to} className={({ isActive }) => (isActive ? "active" : "")}>
+    <NavLink
+      to={to}
+      className={({ isActive }) =>
+        isActive
+          ? "active text-decoration-none text-secondary border-bottom border-success mx-3"
+          : "text-decoration-none text-secondary mx-3"
+      }
+    >
       {children}
     </NavLink>
   );

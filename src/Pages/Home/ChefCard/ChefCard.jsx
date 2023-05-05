@@ -16,14 +16,7 @@ const ChefCard = () => {
         Here is our
         <span className="text-success"> Chefs</span>
       </h2>
-      <div
-        className="mb-4"
-        style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(3, 1fr)",
-          gap: "30px",
-        }}
-      >
+      <div className="mb-4 row row-cols-lg-3 g-3">
         {chefs.map((chef) => (
           <ChefCardEach key={chef.id} chef={chef}></ChefCardEach>
         ))}

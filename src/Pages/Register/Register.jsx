@@ -17,18 +17,19 @@ const Register = () => {
     const email = form.email.value;
     const password = form.password.value;
     if (password.length < 6) {
-      setError("Minimum 6 characters");
+      setError("Password need minimum 6 characters");
       return;
     }
     if ((email, password)) {
-      registerUser(name, photo, email, password)
+      registerUser(email, password)
         .then((result) => {
           updateUserProfile(name, photo)
             .then((result) => {
+              setError("");
               const loggedUser = result.user;
-              setUser(loggedUser);
+              console.log(loggedUser);
             })
-            .catch((error) => console.log(error));
+            .catch((error) => console.log(error.message));
         })
         .catch((error) => setError(error.message));
     }
@@ -37,7 +38,7 @@ const Register = () => {
   return (
     <div>
       <NavigationBar></NavigationBar>
-      <Container className="w-75 w-md-25 mx-auto shadow-lg">
+      <Container className="w-25 mx-auto shadow-lg">
         <h2 className="fs-2 fw-bold text-center text-success mt-5 pt-1">
           Hello there! Please Register
         </h2>
@@ -63,7 +64,6 @@ const Register = () => {
               required
             />
           </Form.Group>
-
           <Form.Group className="mb-3" controlId="formBasicPassword">
             <Form.Label>Password</Form.Label>
             <Form.Control
@@ -74,7 +74,7 @@ const Register = () => {
             />
           </Form.Group>
           <Form.Group className="mb-3" controlId="formBasicCheckbox">
-            <Form.Check type="checkbox" label="Accpet Terms and Conditions" />
+            <Form.Check type="checkbox" label="Accept Terms and Conditions" />
           </Form.Group>
           <Button variant="success" type="submit">
             Register
@@ -82,8 +82,9 @@ const Register = () => {
           <br />
           <Form.Text>
             Already have an account? Please <Link to="/login">Login</Link>
-          </Form.Text>
-          <Form.Text className="danger">{error}</Form.Text>
+          </Form.Text>{" "}
+          <br />
+          <Form.Text className="text-danger fs-5">{error}</Form.Text>
         </Form>
         <GoogleGitAuth></GoogleGitAuth>
       </Container>

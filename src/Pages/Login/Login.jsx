@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import NavigationBar from "../../Shared/NavigationBar/NavigationBar";
 import Footer from "../../Shared/Footer/Footer";
 import { Button, Container, Form } from "react-bootstrap";
@@ -7,28 +7,29 @@ import { AuthContext } from "../../Providers/AuthProvider";
 import GoogleGitAuth from "../../Shared/GoogleGitAuth/GoogleGitAuth";
 
 const Login = () => {
-  const { signIn,error } = useContext(AuthContext);
+  const { signIn } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
+  const [error, setError] = useState("");
 
   const handleLogin = (e) => {
     e.preventDefault();
     const form = e.target;
     const email = form.email.value;
     const password = form.password.value;
-    console.log(email, password);
     signIn(email, password)
       .then((result) => {
         const loggedUser = result.user;
         navigate(from, { replace: true });
+        setError("");
       })
-      .catch((error) => console.log(error));
+      .catch((error) => console.log(error.message));
   };
   return (
     <div>
       <NavigationBar></NavigationBar>
-      <Container className="w-md-25 w-75 mx-auto shadow-lg">
+      <Container className="w-25 mx-auto shadow-lg">
         <h2 className="fs-2 fw-bold text-center text-success mt-5 pt-1">
           Hello there! Please Login
         </h2>
@@ -61,7 +62,7 @@ const Login = () => {
           <Form.Text>
             Don't have an account? Please <Link to="/register">Register</Link>
           </Form.Text>
-          <Form.Text className="success"></Form.Text>
+          <Form.Text className="success"></Form.Text> <br />
           <Form.Text className="danger">{error}</Form.Text>
         </Form>
         <GoogleGitAuth></GoogleGitAuth>

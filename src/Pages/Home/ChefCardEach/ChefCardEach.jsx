@@ -15,31 +15,29 @@ const ChefCardEach = ({ chef }) => {
     recipes,
   } = chef;
   return (
-    <div>
-      <Card className="text-center">
-        <LazyLoad height={200}>
-          <Card.Img
-            className="mx-auto"
-            style={{ height: "250px" }}
-            variant="top"
-            src={picture}
-          />
-        </LazyLoad>
-        <Card.Body>
-          <Card.Title className="fs-3">{name}</Card.Title>
-          <Card.Text>
-            <p>Experience: {years_of_experience} years</p>
-            <p>Number of Recipes: {num_recipes}</p>
-            <p>
-              <FaHeart className="text-danger"></FaHeart> {likes}
-            </p>
-          </Card.Text>
-          <Link to={`/recipes/${id}`}>
-            <Button variant="success">View Recipes</Button>
-          </Link>
-        </Card.Body>
-      </Card>
-    </div>
+    <Card className="text-center">
+      <LazyLoad height={200}>
+        <Card.Img
+          className="mx-auto"
+          style={{ height: "280px" }}
+          variant="top"
+          src={picture}
+        />
+      </LazyLoad>
+      <Card.Body>
+        <Card.Title className="fs-3">{name}</Card.Title>
+        <Card.Text>
+          <p>Experience: {years_of_experience} years</p>
+          <p>Number of Recipes: {num_recipes}</p>
+          <p>
+            <FaHeart className="text-danger"></FaHeart> {likes}
+          </p>
+        </Card.Text>
+        <Link to={`/recipes/${id}`}>
+          <Button variant="success">View Recipes</Button>
+        </Link>
+      </Card.Body>
+    </Card>
   );
 };
 
